@@ -2,7 +2,7 @@
 
 Parse and validate **HighTex v2 archives containing JSON chapters** for server validation pipelines. The library accepts bytes and returns a document model. It does not write to a database, open an editor, read a user's profile, or create Blob objects.
 
-The package provides ESM JavaScript and TypeScript declarations for Node.js 20+, Bun, and browser bundlers. Its only runtime dependency is `fflate`. The manifest currently uses `private: true`; registry publishing is not enabled.
+The package provides ESM JavaScript and TypeScript declarations for Node.js 20+, Bun, and browser bundlers. Its only runtime dependency is `fflate`. The manifest sets `publishConfig.access` to `public` for publishing the scoped package to npm.
 
 ## Usage
 
@@ -108,4 +108,4 @@ npm pack
 
 The `prepack` hook builds and synchronizes version metadata. The `files` allowlist includes `dist` and `README.md`; `.npmignore` lists source, tests, release tooling, configuration, lockfiles, secrets, and other development artifacts. The resulting tarball contains compiled JavaScript, declarations, the README, and package metadata. See [npm's package file rules](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/#files).
 
-Registry publishing remains disabled by `private: true`. Enable publishing deliberately in this package's own repository when it is ready for release.
+To publish the prepared version, run `npm publish`. The manifest's `publishConfig.access: "public"` ensures the scoped package is published publicly.

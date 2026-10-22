@@ -15,7 +15,7 @@ import type {
   ImportValidationOptions,
 } from "./types.js";
 
-export const IMPORTER_VERSION = "0.0.0";
+export const IMPORTER_VERSION = "0.1.0";
 const chapterName = (name: string) =>
   name === "id" ? "abstract" : name === "en" ? "abstract-en" : name;
 const front = ["abstract", "abstract-en", "foreword", "presentation"];
