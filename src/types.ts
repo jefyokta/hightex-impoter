@@ -10,6 +10,17 @@ export interface DocumentNode {
   content?: DocumentNode[];
   [key: string]: unknown;
 }
+export interface AcademicPerson {
+  /** Optional directory ID; legacy names remain usable without a directory. */
+  id?: string;
+  name: string;
+  nip: string;
+}
+export interface AcademicCommittee {
+  chair?: AcademicPerson;
+  examiner1?: AcademicPerson;
+  examiner2?: AcademicPerson;
+}
 export interface AuthorProfile {
   name: string;
   nim: string;
@@ -17,6 +28,8 @@ export interface AuthorProfile {
   advisorNip: string;
   cv: string;
   secondAdvisor?: { name: string; nip: string };
+  /** Presence (including {}) makes this authoritative over legacy config names. */
+  committee?: AcademicCommittee;
 }
 export interface ManifestV2 {
   schema_version: 2;
